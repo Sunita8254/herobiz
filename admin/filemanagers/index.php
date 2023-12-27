@@ -28,25 +28,24 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>Phone</th>
-                  <th>Email</th>
+                  <th>Title</th>
+                  <th>File Link</th>
+                  <th>Image</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-
                 <?php
-                $select = "SELECT *FROM users";
+                $select = "SELECT *FROM filemanagers";
                 $result = mysqli_query($con, $select);
                 $i = 1;
                 while ($data = mysqli_fetch_array($result)) {
                 ?>
                   <tr>
                     <th scope="row"><?php echo $i++; ?></th>
-                    <td><?php echo $data['name']; ?></td>
-                    <td><?php echo $data['phone']; ?></td>
-                    <td><?php echo $data['email']; ?></td>
+                    <td><?php echo $data['title']; ?></td>
+                    <td><?php echo $data['img_link']; ?></td>
+                    <td><img src="<?php echo '../uploads/' . $data['img_link']; ?>" alt="" width="100" height="100"></td>
                     <td>
                       <a class="btn btn-primary btn-sm " href="edit.php?id=<?php echo $data['id']; ?>" role="button"> Edit</a>
                       <a class="btn btn-info btn-sm " href="view.php?id=<?php echo $data['id']; ?>" role="button"> View</a>

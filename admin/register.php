@@ -1,3 +1,5 @@
+<?php require("connection/config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,11 +66,75 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <?php
+
+                  if (isset($_POST['submit'])) {
+                    $name = $_POST['name'];
+                    $phone = $_POST['phone'];
+                    $email = $_POST['email'];
+                    $password = md5($_POST['password']);
+
+                    if ($name != "" && $phone != "" && $email != "" && $password != "") {
+
+                      $query = "SELECT * FROM users WHERE email='$email'";
+
+                      // Execute the query
+                      $result = mysqli_query($con, $query);
+
+                      // Check if the query returned any rows
+                      if (mysqli_num_rows($result) > 0) {
+                        // User with the same username already exists, display an error message
+                        echo "<p>Email already taken.</p>";
+                        header("Refresh:1");
+                      } else {
+                        $insert = "INSERT INTO users (name, phone, email, password) 
+            VALUES ('$name','$phone', '$email', '$password')";
+                        $result =  mysqli_query($con, $insert);
+                        if ($result) {
+                  ?>
+                          <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Data is added</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                        <?php
+                          echo Header("Refresh:2; URL=index.php");
+                        } else {
+                        ?>
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Data is not added</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                      <?php
+                          echo Header("Refresh:2");
+                        }
+                      }
+                    } else {
+                      ?>
+                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>All fields are required</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                  <?php
+                      echo Header("Refresh:2");
+                    }
+                  }
+                  mysqli_close($con);
+
+                  ?>
+
+                  <form class="row g-3 needs-validation" method="POST" enctype="multipart/form-data">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Your Name</label>
                       <input type="text" name="name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourphone" class="form-label">phone</label>
+                      <div class="input-group has-validation">
+                        <input type="tel" name="phone" class="form-control" id="yourphone" required>
+                        <div class="invalid-feedback">Please choose a phone.</div>
+                      </div>
                     </div>
 
                     <div class="col-12">
@@ -77,14 +143,6 @@
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
-                      </div>
-                    </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
@@ -93,17 +151,10 @@
                     </div>
 
                     <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                        <div class="invalid-feedback">You must agree before submitting.</div>
-                      </div>
+                      <button class="btn btn-primary w-100" type="submit" name="submit">Create Account</button>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
+                      <p class="small mb-0">Already have an account? <a href="index.php">Log in</a></p>
                     </div>
                   </form>
 

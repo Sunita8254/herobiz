@@ -975,11 +975,11 @@ section {
 --------------------------------------------------------------*/
 .hero-static {
   width: 100%;
-  min-height: 50vh;
-  background: url("../img/hero-bg.png") center center;
-  background-size: cover;
+  min-height: 10vh;
+  background-size: contain !important;
   position: relative;
   padding: 120px 0 60px;
+  background-position: center;
 }
 
 .hero-static h2 {

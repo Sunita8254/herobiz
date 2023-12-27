@@ -15,8 +15,8 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Blog Details</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <li>Blog Details</li>
           </ol>
         </div>
@@ -278,7 +278,7 @@
                   <div class="post-item mt-3">
                     <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="flex-shrink-0">
                     <div>
-                      <h4><a href="blog-post.html">Nihil blanditiis at in nihil autem</a></h4>
+                      <h4><a href="blog-post.php">Nihil blanditiis at in nihil autem</a></h4>
                       <time datetime="2020-01-01">Jan 1, 2020</time>
                     </div>
                   </div><!-- End recent post item-->
@@ -286,7 +286,7 @@
                   <div class="post-item">
                     <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="flex-shrink-0">
                     <div>
-                      <h4><a href="blog-post.html">Quidem autem et impedit</a></h4>
+                      <h4><a href="blog-post.php">Quidem autem et impedit</a></h4>
                       <time datetime="2020-01-01">Jan 1, 2020</time>
                     </div>
                   </div><!-- End recent post item-->
@@ -294,7 +294,7 @@
                   <div class="post-item">
                     <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="flex-shrink-0">
                     <div>
-                      <h4><a href="blog-post.html">Id quia et et ut maxime similique occaecati ut</a></h4>
+                      <h4><a href="blog-post.php">Id quia et et ut maxime similique occaecati ut</a></h4>
                       <time datetime="2020-01-01">Jan 1, 2020</time>
                     </div>
                   </div><!-- End recent post item-->
@@ -302,7 +302,7 @@
                   <div class="post-item">
                     <img src="assets/img/blog/blog-recent-4.jpg" alt="" class="flex-shrink-0">
                     <div>
-                      <h4><a href="blog-post.html">Laborum corporis quo dara net para</a></h4>
+                      <h4><a href="blog-post.php">Laborum corporis quo dara net para</a></h4>
                       <time datetime="2020-01-01">Jan 1, 2020</time>
                     </div>
                   </div><!-- End recent post item-->
@@ -310,7 +310,7 @@
                   <div class="post-item">
                     <img src="assets/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
                     <div>
-                      <h4><a href="blog-post.html">Et dolores corrupti quae illo quod dolor</a></h4>
+                      <h4><a href="blog-post.php">Et dolores corrupti quae illo quod dolor</a></h4>
                       <time datetime="2020-01-01">Jan 1, 2020</time>
                     </div>
                   </div><!-- End recent post item-->

@@ -29,7 +29,7 @@ id | img | name | position | message | status | created_at | updated_at
  id | qn | ans | status | created_at | updated_at
 
 
- 10. Blogs
+ 10. blogs
  id | img | title | author | description | status | created_at | updated_at
 
  11.abouts

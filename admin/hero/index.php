@@ -37,16 +37,16 @@
               <tbody>
 
                 <?php
-                $select = "SELECT *FROM users";
+                $select = "SELECT *FROM hero";
                 $result = mysqli_query($con, $select);
                 $i = 1;
                 while ($data = mysqli_fetch_array($result)) {
                 ?>
                   <tr>
                     <th scope="row"><?php echo $i++; ?></th>
-                    <td><?php echo $data['name']; ?></td>
-                    <td><?php echo $data['phone']; ?></td>
-                    <td><?php echo $data['email']; ?></td>
+                    <td><?php echo $data['title']; ?></td>
+                    <td><?php echo $data['description']; ?></td>
+                    <td><?php echo $data['video']; ?></td>
                     <td>
                       <a class="btn btn-primary btn-sm " href="edit.php?id=<?php echo $data['id']; ?>" role="button"> Edit</a>
                       <a class="btn btn-info btn-sm " href="view.php?id=<?php echo $data['id']; ?>" role="button"> View</a>
