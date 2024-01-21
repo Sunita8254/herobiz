@@ -38,6 +38,8 @@ if (!isset($_SESSION['email'])) {
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
 
+  <script src="https://kit.fontawesome.com/0a0f7633e1.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
