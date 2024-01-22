@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="../documentation/document.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -352,6 +352,13 @@
             </a>
           </li>
         </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="../documentation/document.php">
+          Documentation
+        </a>
+        
       </li><!-- End Forms Nav -->
 
     </ul>
