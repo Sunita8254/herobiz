@@ -4,6 +4,25 @@
 
 <?php require("include/navbar.php"); ?>
 <!-- End Header -->
+
+<?php
+      $settings = "SELECT *FROM settings";
+      $settings =  mysqli_query($con, $settings);
+     while( $site = mysqli_fetch_assoc($settings)){
+      if($site['site_key']=="price_description"){
+        $price_description=$site['site_value'];
+      }
+
+      if($site['site_key']=="blog_description"){
+        $blog_description=$site['site_value'];
+      }
+
+
+
+     
+     }
+
+      ?>
 <?php
 $hero = "SELECT *FROM hero";
 $hero =  mysqli_query($con, $hero);
@@ -155,7 +174,7 @@ $data = mysqli_fetch_assoc($hero);
 
       <div class="section-header">
         <h2>Our Pricing</h2>
-        <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+        <p><?php echo $price_description ?></p>
       </div>
 
       <div class="row gy-4">
@@ -342,7 +361,7 @@ $data = mysqli_fetch_assoc($hero);
 
       <div class="section-header">
         <h2>Blog</h2>
-        <p>Recent posts form our Blog</p>
+        <p><?php echo $blog_description ?></p>
       </div>
 
       <div class="row">

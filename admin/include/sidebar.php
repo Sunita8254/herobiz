@@ -72,12 +72,12 @@
         </a>
         <ul id="features" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="features/create.php">
+            <a href="../features/create.php">
               <i class="bi bi-circle"></i><span>Add features</span>
             </a>
           </li>
           <li>
-            <a href="features/index.php" class="active">
+            <a href="../features/index.php" class="active">
               <i class="bi bi-circle"></i><span>Manage features</span>
             </a>
           </li>
@@ -90,12 +90,12 @@
         </a>
         <ul id="testimonials" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="testimonials/create.php">
+            <a href="../testimonials/create.php">
               <i class="bi bi-circle"></i><span>Add testimonials</span>
             </a>
           </li>
           <li>
-            <a href="testimonials/index.php" class="active">
+            <a href="../testimonials/index.php" class="active">
               <i class="bi bi-circle"></i><span>Manage testimonials</span>
             </a>
           </li>
@@ -106,14 +106,14 @@
         <a class="nav-link " data-bs-target="#price" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>price</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="price" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <ul id="price" class="nav-content collapse" data-bs-parent="">
           <li>
-            <a href="price/create.php">
+            <a href="../price/create.php">
               <i class="bi bi-circle"></i><span>Add price</span>
             </a>
           </li>
           <li>
-            <a href="price/index.php" class="active">
+            <a href="../price/index.php" class="active">
               <i class="bi bi-circle"></i><span>Manage price</span>
             </a>
           </li>
@@ -324,12 +324,12 @@
         </a>
         <ul id="settings" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="settings/create.php">
+            <a href="../settings/create.php">
               <i class="bi bi-circle"></i><span>Add settings</span>
             </a>
           </li>
           <li>
-            <a href="settings/index.php" class="active">
+            <a href="../settings/index.php" class="active">
               <i class="bi bi-circle"></i><span>Manage settings</span>
             </a>
           </li>

@@ -7,11 +7,11 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Features</h1>
+    <h1>Edit Setting value</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active">Features</li>
+        <li class="breadcrumb-item active">Edit Setting value</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -23,24 +23,32 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Features</h5>
+            <h5 class="card-title">Edit Setting value</h5>
+            <a class="btn btn-primary btn-sm " href="index.php" role="button"> <</a>
+
 
             <?php
 
+            if (isset($_GET['id'])) {
+
+              $id = $_GET['id'];
+              $query = "SELECT * FROM Settings WHERE id=$id";
+              $result = mysqli_query($con, $query);
+              $data = $result->fetch_assoc();
+            }
+
             if (isset($_POST['submit'])) {
-              $icon = $_POST['icon'];
-              $title = $_POST['title'];
-              $description = $_POST['description'];
+              $site_value = $_POST['site_value'];
 
-              if ($icon != "" && $title != "" && $description != "") {
+              if ($site_value!="" ) {
 
-                $insert = "INSERT INTO features (icon, title, description) 
-                VALUES ('$icon','$title','$description')";
+                $insert = "UPDATE settings SET site_value= '$site_value' WHERE id=$id ";
+
                 $result =  mysqli_query($con, $insert);
                 if ($result) {
             ?>
                   <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>features is added</strong>
+                    <strong>Setting value is Updated</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <?php
@@ -49,11 +57,11 @@
                 } else {
                 ?>
                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>features is not added</strong>
+                    <strong>Setting value is not Updated</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <?php
-                  echo "<meta http-equiv=\"refresh\" content=\"1;\">";
+                  echo header("Refresh:2");
                 }
               } else {
                 ?>
@@ -62,7 +70,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php
-                echo "<meta http-equiv=\"refresh\" content=\"1;\">";
+                echo header("Refresh:2");
               }
             }
 
@@ -71,18 +79,10 @@
             <!-- Vertical Form -->
             <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
               <div class="col-6">
-                <label for="inputNanme4" class="form-label">Icon</label>
-                <input type="text" name="icon" class="form-control" id="inputNanme4">
-                <p>icon value should be like <span><i class="text-danger">fa fa-facebook</i></span></p>
+                <label for="inputNanme4" class="form-label">Site Value</label>
+                <input type="text" name="site_value" class="form-control" value="<?php echo $data['site_value']; ?>" id="inputNanme4">
               </div>
-              <div class="col-6">
-                <label for="inputNanme4" class="form-label">title</label>
-                <input type="text" name="title" class="form-control" id="inputNanme4">
-              </div>
-              <div class="col-6">
-                <label for="inputEmail4" class="form-label">description</label>
-                <input type="text" name="description" class="form-control" id="inputEmail4">
-              </div>
+
                 <div class="col-6 ">
                   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>

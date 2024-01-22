@@ -7,11 +7,11 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Features</h1>
+    <h1>Settings</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active">Features</li>
+        <li class="breadcrumb-item active">Settings</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -23,24 +23,25 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Features</h5>
+            <h5 class="card-title">Settings</h5>
+            <a class="btn btn-primary btn-sm " href="index.php" role="button"> <</a>
+
 
             <?php
 
             if (isset($_POST['submit'])) {
-              $icon = $_POST['icon'];
-              $title = $_POST['title'];
-              $description = $_POST['description'];
+              $site_key = $_POST['site_key'];
+              $site_value = $_POST['site_value'];
 
-              if ($icon != "" && $title != "" && $description != "") {
+              if ($site_key != "" && $site_value != "" ) {
 
-                $insert = "INSERT INTO features (icon, title, description) 
-                VALUES ('$icon','$title','$description')";
+                $insert = "INSERT INTO Settings (site_key, site_value) 
+                VALUES ('$site_key','$site_value')";
                 $result =  mysqli_query($con, $insert);
                 if ($result) {
             ?>
                   <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>features is added</strong>
+                    <strong>Settings is added</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <?php
@@ -49,7 +50,7 @@
                 } else {
                 ?>
                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>features is not added</strong>
+                    <strong>Settings is not added</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <?php
@@ -71,17 +72,13 @@
             <!-- Vertical Form -->
             <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
               <div class="col-6">
-                <label for="inputNanme4" class="form-label">Icon</label>
-                <input type="text" name="icon" class="form-control" id="inputNanme4">
-                <p>icon value should be like <span><i class="text-danger">fa fa-facebook</i></span></p>
+                <label for="inputNanme4" class="form-label">Site Key</label>
+                <input type="text" name="site_key" class="form-control" id="inputNanme4">
               </div>
               <div class="col-6">
-                <label for="inputNanme4" class="form-label">title</label>
-                <input type="text" name="title" class="form-control" id="inputNanme4">
-              </div>
-              <div class="col-6">
-                <label for="inputEmail4" class="form-label">description</label>
-                <input type="text" name="description" class="form-control" id="inputEmail4">
+                <label for="inputNanme4" class="form-label">Site Value</label>
+                <input type="text" name="site_value" class="form-control" id="inputNanme4">
+                <p><i class="text-danger">Copy logo file path from filemanager</i></p>
               </div>
                 <div class="col-6 ">
                   <button type="submit" name="submit" class="btn btn-primary">Submit</button>

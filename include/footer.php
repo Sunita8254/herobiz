@@ -1,6 +1,28 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
 
+<?php
+      $settings = "SELECT *FROM settings";
+      $settings =  mysqli_query($con, $settings);
+     while( $site = mysqli_fetch_assoc($settings)){
+      
+
+      if($site['site_key']=="fb"){
+        $fb=$site['site_value'];
+      }
+      if($site['site_key']=="fb"){
+        $fb=$site['site_value'];
+      }
+      if($site['site_key']=="fb"){
+        $fb=$site['site_value'];
+      }
+
+
+     
+     }
+
+      ?>
+
 <div class="footer-content">
   <div class="container">
     <div class="row">
@@ -70,7 +92,7 @@
 
     <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
       <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="<?php echo $fb; ?>" class="facebook"><i class="bi bi-facebook"></i></a>
       <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
       <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
       <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>

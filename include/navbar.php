@@ -4,12 +4,16 @@
     <a href="index.php" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <?php
-      $hero = "SELECT *FROM hero";
-      $hero =  mysqli_query($con, $hero);
-      $data = mysqli_fetch_assoc($hero);
+      $settings = "SELECT *FROM settings";
+      $settings =  mysqli_query($con, $settings);
+     while( $site = mysqli_fetch_assoc($settings)){
+      if($site['site_key']=="logo"){
+        $logo=$site['site_value'];
+      }
+     }
 
       ?>
-      <img src="<?php  echo 'admin/uploads/'. $data['video'];?>" alt="" width="128px" height="40px">
+      <img src="<?php  echo 'admin/uploads/'. $logo;?>" alt="" width="128px" height="40px">
       <!-- <h1>HeroBiz<span>.</span></h1> -->
     </a>
 

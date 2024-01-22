@@ -7,11 +7,11 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Features</h1>
+    <h1>Price</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active">Features</li>
+        <li class="breadcrumb-item active">Price</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -23,24 +23,23 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Features</h5>
+            <h5 class="card-title">Price</h5>
 
             <?php
 
             if (isset($_POST['submit'])) {
-              $icon = $_POST['icon'];
               $title = $_POST['title'];
-              $description = $_POST['description'];
+              $price = $_POST['price'];
 
-              if ($icon != "" && $title != "" && $description != "") {
+              if ($title != "" && $price != "") {
 
-                $insert = "INSERT INTO features (icon, title, description) 
-                VALUES ('$icon','$title','$description')";
+                $insert = "INSERT INTO price (title, price) 
+                VALUES ('$title','$price')";
                 $result =  mysqli_query($con, $insert);
                 if ($result) {
             ?>
                   <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>features is added</strong>
+                    <strong>Price is added</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <?php
@@ -49,7 +48,7 @@
                 } else {
                 ?>
                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>features is not added</strong>
+                    <strong>Price is not added</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <?php
@@ -71,17 +70,12 @@
             <!-- Vertical Form -->
             <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
               <div class="col-6">
-                <label for="inputNanme4" class="form-label">Icon</label>
-                <input type="text" name="icon" class="form-control" id="inputNanme4">
-                <p>icon value should be like <span><i class="text-danger">fa fa-facebook</i></span></p>
+                <label for="title" class="form-label">title</label>
+                <input type="text" name="title" class="form-control" id="title">
               </div>
               <div class="col-6">
-                <label for="inputNanme4" class="form-label">title</label>
-                <input type="text" name="title" class="form-control" id="inputNanme4">
-              </div>
-              <div class="col-6">
-                <label for="inputEmail4" class="form-label">description</label>
-                <input type="text" name="description" class="form-control" id="inputEmail4">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" name="price" class="form-control" id="price">
               </div>
                 <div class="col-6 ">
                   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
